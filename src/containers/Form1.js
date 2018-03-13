@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { formChange, formSubmit } from '../actions'
-import Form from '../components/Form'
+import Form1 from '../components/Form1'
 
 export default connect(
   state => (state),
@@ -8,4 +8,4 @@ export default connect(
      formChange: (e) => dispatch(formChange(e)),
      formSubmit: (e) => dispatch(formSubmit(e))
   })
-)(Form)
+)(Form1)
