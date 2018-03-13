@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap'
 
-const InputField = ({ id, label, value, handleChange, getValidationState, helpText, rest }) => {
+const InputField = ({ id, label, value, handleChange, getValidationState, helpText, ...rest }) => {
 
   return (
     <FormGroup controlId={id} validationState={getValidationState()}>

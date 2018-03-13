@@ -15,7 +15,7 @@ const DATA = [
 
 const DropDown = ({ label, options }) => {
   function handleChange(e) {
-    console.log(`${e.target.name}: ${e.target.value}`)
+    // console.log(`${e.target.name}: ${e.target.value}`)
   }
   return (
     <div>
@@ -30,8 +30,8 @@ const DropDown = ({ label, options }) => {
 }
 
 const Result = ({state}) => {
-  console.log(state)
-  console.log(Object.entries(state))
+  // console.log(state)
+  // console.log(Object.entries(state))
   return (
     <ul>
       { Object.entries(state).map(([key, value]) => ( <li key={key}>{`${key}: ${value}`}</li>)) }

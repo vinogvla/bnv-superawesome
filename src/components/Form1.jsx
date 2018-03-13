@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import InputField from './InputField'
 
 const Form = ({ email, emailConfirm, fname, lname, isInvalid, formChange, formSubmit }) => {
@@ -28,44 +28,41 @@ const Form = ({ email, emailConfirm, fname, lname, isInvalid, formChange, formSu
     <form onSubmit={handleSubmit}>
 
       <h2>Form 1</h2>
+      
+      <InputField
+        id="email"
+        label="Email"
+        value={email}
+        placeholder="Please enter your email"
+        type="email"
+        handleChange={handleChange}
+        getValidationState={getValidationState}
+        helpText="Enter valid Email address" />
 
-      <FormGroup
-        controlId="email"
-        validationState={getValidationState()}
-      >
-        <ControlLabel>Email</ControlLabel>
-        <FormControl type="email" value={email} placeholder="Email" onChange={handleChange} />
-        <FormControl.Feedback />
-        <HelpBlock>Please enter your email address</HelpBlock>
-      </FormGroup>
 
       <InputField
         id="emailConfirm"
         label="Confirm Email"
+        type="email"
         value={emailConfirm}
         handleChange={handleChange}
         getValidationState={getValidationState}
         helpText="help text" />
+      
+      <InputField
+        id="fname"
+        label="First Name"
+        value={fname}
+        handleChange={handleChange}
+        getValidationState={getValidationState} />
+      
+      <InputField
+        id="lname"
+        label="Last Name"
+        value={lname}
+        handleChange={handleChange}
+        getValidationState={getValidationState} />
 
-      <FormGroup
-        controlId="fname"
-        validationState={getValidationState()}
-      >
-        <ControlLabel>Fname</ControlLabel>
-        <FormControl type="text" value={fname} placeholder="Fname" onChange={handleChange} />
-        <FormControl.Feedback />
-        <HelpBlock>Please enter your fname</HelpBlock>
-      </FormGroup>
-
-      <FormGroup
-        controlId="lname"
-        validationState={getValidationState()}
-      >
-        <ControlLabel>Lname</ControlLabel>
-        <FormControl type="text" value={lname} placeholder="lname" onChange={handleChange} />
-        <FormControl.Feedback />
-        <HelpBlock>Please enter your lname</HelpBlock>
-      </FormGroup>
 
       <Button disabled={isInvalid}>Submit</Button>
 
