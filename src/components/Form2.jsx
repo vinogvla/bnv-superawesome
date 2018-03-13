@@ -18,25 +18,41 @@ const DropDown = ({ label, options }) => {
     console.log(`${e.target.name}: ${e.target.value}`)
   }
   return (
-    <label>
-      { label }
-      <select onChange={handleChange}>
-        { options.map ((element) => { return (
-            <option key={element} value={element}>{element}</option>
-          )})
-        }
-      </select>
-    </label>
+    <div>
+      <label>
+        { label }
+        <select onChange={handleChange}>
+          { options.map (element => (<option key={element} value={element}>{element}</option>)) }
+        </select>
+      </label>
+    </div>
   )
 }
 
+const Result = ({state}) => {
+  console.log(state)
+  console.log(Object.entries(state))
+  return (
+    <ul>
+      { Object.entries(state).map(([key, value]) => ( <li key={key}>{`${key}: ${value}`}</li>)) }
+    </ul>
+  )
+}
+
+
 export default class Form2 extends React.Component {
+  state = {
+    country: '',
+    city: ''
+  }
+
   render() {
     return (
       <form>
         <h2>Form 2 </h2>
-        <DropDown options={DATA.map(e=>(e.country)).filter((e,i,a)=>(a.indexOf(e)===i))} />
-        <DropDown options={DATA.map(e=>(e.city)).filter((e,i,a)=>(a.indexOf(e)===i))} />
+        <DropDown label="Country" options={DATA.map(e=>(e.country)).filter((e,i,a)=>(a.indexOf(e)===i))} />
+        <DropDown label="City" options={DATA.map(e=>(e.city)).filter((e,i,a)=>(a.indexOf(e)===i))} />
+        <Result state={this.state} />
       </form>
     )
   }
