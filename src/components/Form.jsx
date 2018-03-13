@@ -1,11 +1,25 @@
 import React from 'react'
+  
 
-const Form = ({ email, fname, lname, isInvalid, handleChange }) => (
-    <form >
+const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
 
+  function handleChange (e) {
+    formChange({
+      name: e.target.name,
+      value: e.target.value
+    })
+  }
+
+ function handleSubmit (e) {
+    e.preventDefault()
+    formSubmit()
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
       <div className="formElement">
         <label htmlFor="email">Email</label>
-        <input type="text" id="email" name="email" value={email} onChange={(e) => handleChange(e.target.value)} />
+        <input type="text" id="email" name="email" value={email} onChange={handleChange} />
       </div>
 
       <div className="formElement">
@@ -22,6 +36,6 @@ const Form = ({ email, fname, lname, isInvalid, handleChange }) => (
 
     </form>
   )
-
+}
 
 export default Form
