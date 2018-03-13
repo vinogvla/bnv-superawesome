@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap' 
+import { Button, FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap'
+import InputField from './InputField'
 
-const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
+const Form = ({ email, emailConfirm, fname, lname, isInvalid, formChange, formSubmit }) => {
 
   function handleChange (e) {
     formChange({
@@ -15,7 +16,7 @@ const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
     if (length > 10) return 'success'
     else if (length > 5) return 'warning'
     else if (length > 0) return 'error'
-    return null 
+    return null
   }
 
   function handleSubmit (e) {
@@ -26,7 +27,7 @@ const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
 
-      <h2>Form 1</h2>      
+      <h2>Form 1</h2>
 
       <FormGroup
         controlId="email"
@@ -37,7 +38,15 @@ const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
         <FormControl.Feedback />
         <HelpBlock>Please enter your email address</HelpBlock>
       </FormGroup>
-      
+
+      <InputField
+        id="emailConfirm"
+        label="Confirm Email"
+        value={emailConfirm}
+        handleChange={handleChange}
+        getValidationState={getValidationState}
+        helpText="help text" />
+
       <FormGroup
         controlId="fname"
         validationState={getValidationState()}
@@ -47,7 +56,7 @@ const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
         <FormControl.Feedback />
         <HelpBlock>Please enter your fname</HelpBlock>
       </FormGroup>
-      
+
       <FormGroup
         controlId="lname"
         validationState={getValidationState()}

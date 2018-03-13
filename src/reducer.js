@@ -1,6 +1,7 @@
 
 const initialState = {
   email: "test@emai.com",
+  emailConfirm: "",
   fname: "",
   lname: "",
   isInvalid: false
