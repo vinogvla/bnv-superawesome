@@ -1,11 +1,5 @@
 
-const initialState = {
-  email: "",
-  emailConfirm: "",
-  fname: "",
-  lname: "",
-  isInvalid: false
-}
+
 
 function reducer(state = initialState, action) {
   switch(action.type) {
