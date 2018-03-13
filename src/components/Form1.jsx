@@ -17,6 +17,9 @@ const Form = ({ email, fname, lname, isInvalid, formChange, formSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+
+      <h2>Form 1</h2>      
+
       <div className="formElement">
         <label htmlFor="email">Email</label>
         <input type="text" id="email" name="email" value={email} onChange={handleChange} />
