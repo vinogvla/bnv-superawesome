@@ -1,9 +1,6 @@
 import React from 'react'
 
-const Form = ({ email, fname, lname, isInvalid, handleChange }) => {
-
-  return (
-
+const Form = ({ email, fname, lname, isInvalid, handleChange }) => (
     <form >
 
       <div className="formElement">
@@ -25,9 +22,6 @@ const Form = ({ email, fname, lname, isInvalid, handleChange }) => {
 
     </form>
   )
-
-
-}
 
 
 export default Form
