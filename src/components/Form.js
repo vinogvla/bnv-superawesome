@@ -1,11 +1,11 @@
 import React from 'react'
 import Element from './Element'
 
-const Form = ({ form, changeValue }) => {
+const Form = ({ id, elements, changeValue }) => {
 
   const handleChange = (e) => {
     changeValue({
-      form: form.id,
+      form: id,
       id: e.target.id,
       value: e.target.value
     })
@@ -14,7 +14,7 @@ const Form = ({ form, changeValue }) => {
   return (
     <form>
     {
-      form.elements.map((element, index)=> {
+      elements.map((element, index)=> {
         return ( <Element key={index} {...element} handleChange={handleChange} />)
       })
     }

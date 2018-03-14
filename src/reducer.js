@@ -1,22 +1,20 @@
 const initialState = {
-  form: {
-    id: 'user',
-    elements: [
-      {
-        name:"email",
-        value:"test",
-        type:"email",
-        label:"Email",
-        regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-      },
-      {
-        name:"fname",
-        type:"text",
-        label:"First Name",
-        regex: new RegExp('a')
-      },
-    ]
-  }
+  elements: [
+    {
+      name:"email",
+      value:"test",
+      type:"email",
+      label:"Email",
+      regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    },
+    {
+      name:"fname",
+      type:"text",
+      label:"First Name",
+      value: "",
+      regex: new RegExp('a')
+    },
+  ]
 }
 
 function reducer(state = initialState, action) {
@@ -24,21 +22,12 @@ function reducer(state = initialState, action) {
     case "CHANGE_VALUE":
       return {
         ...state,
-        form: {
-          ...state.form,
-          elements: state.form.elements.map(
-            element => {
-              if (element.name === action.payload.id) {
-                return {
-                  ...element,
-                  value: action.payload.value
-                }
-              } else {
-                return element
-              }
-            }
+        elements: state.elements.map(
+          element => (element.name === action.payload.id
+              ? { ...element, value: action.payload.value }
+              : element
           )
-        }
+        )
       }
     default:
       return state

@@ -5,8 +5,13 @@ import { changeValue } from './actions'
 
 class App extends React.Component {
   render() {
+    const { id, elements, changeValue } = this.props
     return(
-      <Form form= {this.props.form} changeValue={this.props.changeValue} />
+      <Form
+        id={id}
+        elements={elements}
+        changeValue={changeValue}
+      />
     )
   }
 }
