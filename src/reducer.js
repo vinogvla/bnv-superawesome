@@ -1,13 +1,16 @@
-
-
+const initialState = {
+  form: {
+    id: 'user',
+    elements: [
+      { name:"email", value:"test", type:"email", label:"Email", regex:"" },
+      { name:"fname", type:"text", label:"First Name", regex:"" },
+      { name:"lname", type:"text", label:"last Name", regex:"" },
+    ]
+  }
+}
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case "FORM_CHANGE":
-      return {
-        ...state,
-        [action.payload.name]: action.payload.value
-      }
     default:
       return state
   }
